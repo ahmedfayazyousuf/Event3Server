@@ -14,9 +14,9 @@ const User = require("../model/userSchema");
 
 router.post('/register', async (req, res) => {
 
-    const { name, email, ccode, phone, day, month, year, timetaken, checkone, checktwo, checkthree } = req.body;
+    const { name, timetaken } = req.body;
 
-        const user = new User({name, email, ccode, phone, day, month, year, timetaken, checkone, checktwo, checkthree });
+        const user = new User({name, timetaken });
 
         //hashing
 
@@ -33,25 +33,25 @@ router.post('/register', async (req, res) => {
 
 
 
-router.post('/timer', async (req, res) => {
+// router.post('/timer', async (req, res) => {
 
-    const { time } = req.body;
+//     const { time } = req.body;
 
-    if(!name || !email || !phone || !day || !month || !year)
-    {
-        return res.status(422).json({ error: "Please fill all the fields properly" });
-    } 
+//     if(!name || !email || !phone || !day || !month || !year)
+//     {
+//         return res.status(422).json({ error: "Please fill all the fields properly" });
+//     } 
 
-        const user = new User({name, email, phone, day, month, year });
+//         const user = new User({name, email, phone, day, month, year });
 
-        //hashing
+//         //hashing
 
-        await user.save();
+//         await user.save();
 
-        res.status(201).json({ message:"User Successfully Registered!" })
+//         res.status(201).json({ message:"User Successfully Registered!" })
 
 
-});
+// });
 
 
 
